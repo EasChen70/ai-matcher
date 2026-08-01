@@ -22,6 +22,8 @@ class PreferenceParser:
 
     async def parse_preferences(self, description: str) -> StructuredPreferences:
         # Use the LLM client to parse the preferences
-        system_prompt = SYSTEM_PROMPT
-        user_prompt = description
-        output_model = StructuredPreferences
+        return await self.llm_client.generate_structured(
+            system_prompt = SYSTEM_PROMPT,
+            user_prompt = description,
+            output_model = StructuredPreferences,
+        )
