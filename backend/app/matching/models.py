@@ -3,7 +3,12 @@ from pydantic import BaseModel, Field
 
 #verifies before sending to llm
 class ParsePreferenceRequest(BaseModel):
-    description: str = Field(min_length=10, max_length = 200, example = "I want a partner who is kind, intelligent, and has a good sense of humor.")
+    description: str = Field(min_length=10, max_length = 200, json_schema_extra={
+            "example": (
+                "I want a partner who is kind, intelligent, "
+                "and has a good sense of humor."
+            )
+        })
 
 
 class StructuredPreferences(BaseModel):
