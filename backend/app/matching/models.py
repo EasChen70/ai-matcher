@@ -1,0 +1,1 @@
+#define profile, preferences, and compatibility-result schemas
